@@ -4,6 +4,8 @@ void setup()
 	size(300,300);
 	noLoop();
 	one = new Die (150,150);
+	one.roll();
+	one.show();
 }
 void draw()
 {
@@ -16,6 +18,7 @@ void mousePressed()
 class Die //models one single dice cube
 {
 	//variable declarations here
+	int myX, myY;
 	Die(int x, int y) //constructor
 	{
 		//variable initializations here
@@ -25,12 +28,12 @@ class Die //models one single dice cube
 	void roll()
 	{
 		//your code here
+
 	}
 	void show()
 	{
 		//your code here
-		rect(150,150,10,10);
+		rect(myX,myY,50,50);
 		fill(255);
-		ellipse(150,150,1,1);
 	}
 }
