@@ -1,15 +1,24 @@
 Die one;
 void setup()
 {
-	size(300,300);
+	size(250,300);
 	noLoop();
-	one = new Die (150,150);
+	noStroke();
+	background(0,255,0);
 }
 void draw()
 {
 	//your code here
-	one.roll();
-	one.show();
+	for(int y = 30; y <= 190; y = y + 70)
+	{
+		for(int x = 30; x <= 170; x = x + 70)
+		{
+			one = new Die(x,y);
+			one.roll();
+			one.show();
+		}
+	}
+	text("Total:" + dieNum, 125,270);
 }
 void mousePressed()
 {
@@ -34,8 +43,8 @@ class Die //models one single dice cube
 	{
 		//your code here
 		fill(255);
-		rect(myX,myY,50,50);
-		
+		rect(myX,myY,50,50,15);
+
 		if(dieNum == 1)
 		{
 			fill(0);
@@ -70,6 +79,21 @@ class Die //models one single dice cube
 		{
 			fill(0);
 			ellipse(myX + 11,myY + 12,10,10);
+			ellipse(myX + 25,myY + 25,10,10);
+			ellipse(myX + 11,myY + 38,10,10);
+			ellipse(myX + 38,myY + 11,10,10);
+			ellipse(myX + 38,myY + 38,10,10);
+		}
+
+		if(dieNum == 6)
+		{
+			fill(0);
+			ellipse(myX + 11,myY + 12,10,10);
+			ellipse(myX + 11,myY + 25,10,10);
+			ellipse(myX + 11,myY + 38,10,10);
+			ellipse(myX + 38,myY + 11,10,10);
+			ellipse(myX + 38,myY + 25,10,10);
+			ellipse(myX + 38,myY + 38,10,10);
 		}
 	}
 }
