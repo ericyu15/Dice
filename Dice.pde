@@ -4,11 +4,12 @@ void setup()
 	size(250,300);
 	noLoop();
 	noStroke();
-	background(0,255,0);
 }
 void draw()
 {
 	//your code here
+	int sum = 0;
+	background((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 	for(int y = 30; y <= 190; y = y + 70)
 	{
 		for(int x = 30; x <= 170; x = x + 70)
@@ -16,9 +17,12 @@ void draw()
 			one = new Die(x,y);
 			one.roll();
 			one.show();
+			sum = sum + one.dieNum;
 		}
 	}
-	text("Total:" + dieNum, 125,270);
+	textSize(20);
+	text("Total:" + sum, 80,270);
+	//if (sum > 35) <<< needs work
 }
 void mousePressed()
 {
